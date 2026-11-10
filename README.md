@@ -14,7 +14,7 @@ https://phidlarkson.github.io/spaceapps-kumasi-volunteer/
 White card on the 2026 brand guide. The photo leads: a 500px circle on the centre
 axis inside a Navy holding ring and one Electric Blue orbit ring, with a single Neon
 Yellow planet. Above it the statement "See you at the NASA Space Apps Kumasi" in Fira
-Sans Black; below it the name, the role label and the eight collaborators in a single row. No build step is needed to publish: the site is plain HTML.
+Sans Black; below it the name, the role label and the ten collaborators in a single row. No build step is needed to publish: the site is plain HTML.
 
 | File | What it is |
 |---|---|

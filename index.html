@@ -26,6 +26,7 @@
   --pad:clamp(20px,4vw,56px);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 html,body{margin:0}
 body{background:#fff;color:var(--navy);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
@@ -38,14 +39,14 @@ h1,h2,h3,p,ol,ul{margin:0}
 .wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
 
 /* ---------- header ---------- */
-.bar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+.bar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 24px;
      padding:40px 0 20px}
 .brand{display:flex;align-items:center;gap:16px}
 .brand img.a{height:48px;width:auto}
 .brand .div{width:1px;height:40px;background:var(--rule)}
 .brand img.b{height:40px;width:auto}
 .bar .when{text-align:right;font:700 13px/1.6 var(--body);letter-spacing:.16em;
-           text-transform:uppercase;color:var(--navy)}
+           text-transform:uppercase;color:var(--navy);margin-left:auto}
 .bar .when span{display:block;color:var(--electric);font-weight:600}
 .hair{height:1px;background:var(--line)}
 
@@ -80,6 +81,7 @@ canvas.dragging{cursor:grabbing}
     color:var(--navy);margin-bottom:14px}
 .field{grid-column:2}
 .sub{grid-column:2;font-size:14px;line-height:1.55;color:var(--slate);margin-top:10px}
+.sub.err{color:#B3261E;margin-top:6px}
 
 label.f{display:block;font:700 11.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;
         color:var(--slate);margin-bottom:8px}
@@ -105,9 +107,9 @@ svg.i{width:17px;height:17px;flex:none}
 footer{background:var(--wash);border-top:1px solid var(--line)}
 .colab{padding:32px 0 8px}
 .colab .lab{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--slate)}
-.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 28px;align-items:center;
+.logos{display:grid;grid-template-columns:repeat(5,1fr);gap:22px 28px;align-items:center;
        padding:24px 0 8px}
-.logos img{max-height:40px;max-width:130px;width:auto;height:auto;object-fit:contain}
+.logos img{max-height:40px;max-width:min(130px,100%);width:auto;height:auto;object-fit:contain}
 .foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;align-items:flex-end;
       padding:24px 0 36px;border-top:1px solid var(--rule);margin-top:22px}
 .foot p{font:600 11.5px/1.7 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
@@ -117,7 +119,6 @@ footer{background:var(--wash);border-top:1px solid var(--line)}
 @media (max-width:900px){
   main{grid-template-columns:1fr;gap:36px;padding-top:32px}
   .preview{position:static}
-  .logos{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:600px){
   .bar{padding-top:32px}
@@ -153,7 +154,7 @@ footer{background:var(--wash);border-top:1px solid var(--line)}
 <main class="wrap">
   <section class="preview" aria-label="Card preview">
     <div class="card-frame">
-      <canvas id="c" width="1080" height="1350" aria-label="Your participant card"></canvas>
+      <canvas id="c" width="1080" height="1350" role="img" aria-label="Your participant card"></canvas>
     </div>
     <p class="hint"><b>Drag</b> to move the photo, <b>pinch</b> or scroll to zoom. Downloads as a 1080 × 1350 post.</p>
   </section>
@@ -172,6 +173,7 @@ footer{background:var(--wash);border-top:1px solid var(--line)}
           </div>
         </div>
         <p class="sub">Chest up, facing the camera, in good light. The photo is read in your browser and never uploaded.</p>
+        <p class="sub err" id="err" role="alert" hidden></p>
       </li>
 
       <li>
@@ -211,14 +213,16 @@ footer{background:var(--wash);border-top:1px solid var(--line)}
   <div class="wrap colab">
     <p class="lab">Our local collaborators</p>
     <div class="logos">
-      <img src="assets/collaborators/astroxmat-trim.png" alt="AstroXMat Research Laboratory">
-      <img src="assets/collaborators/dipper-trim.png" alt="DIPPER Lab, KNUST">
       <img src="assets/collaborators/elearning-trim.png" alt="KNUST E-Learning Centre">
-      <img src="assets/collaborators/gsc-plate.png" alt="Ghana Space Conference">
       <img src="assets/collaborators/ofwa-ink-trim.png" alt="Open Foundation West Africa">
+      <img src="assets/collaborators/dipper-trim.png" alt="DIPPER Lab, KNUST">
+      <img src="assets/collaborators/fedco.png" alt="Federated Commodities PLC">
+      <img src="assets/collaborators/astroxmat-trim.png" alt="AstroXMat Research Laboratory">
+      <img src="assets/collaborators/gsc-plate.png" alt="Ghana Space Conference">
       <img src="assets/collaborators/sca-ga.png" alt="She Code Africa, Greater Accra Chapter">
       <img src="assets/collaborators/lidn-official-trim.png" alt="Ladies in Design Network">
       <img src="assets/collaborators/ghie-logo.png" alt="Ghana Institution of Engineering">
+      <img src="assets/collaborators/pixova-ink.png" alt="Pixova Ghana">
     </div>
   </div>
   <div class="wrap">
@@ -332,22 +336,37 @@ c.addEventListener("wheel", e => {
 }, {passive: false});
 
 $("zoom").addEventListener("input", e => zoomAt(+e.target.value, CARD.cx, CARD.cy));
+
+function say(msg) {
+  const el = $("err");
+  el.textContent = msg || "";
+  el.hidden = !msg;
+}
+
 $("file").addEventListener("change", e => {
   const f = e.target.files[0];
   if (!f) return;
+  say("");
+  const url = URL.createObjectURL(f);
   const img = new Image();
   img.onload = () => {
+    URL.revokeObjectURL(url);
     photo = img;
     ["zoom", "fit", "dl", "share"].forEach(id => $(id).disabled = false);
     fit();
   };
-  img.src = URL.createObjectURL(f);
+  img.onerror = () => {
+    URL.revokeObjectURL(url);
+    e.target.value = "";   // so the same file can be picked again after re-exporting it
+    say("That file could not be opened as a photo. Try a JPG, PNG or HEIC image.");
+  };
+  img.src = url;
 });
 $("fit").onclick = fit;
 $("name").oninput = draw;
 
 const fileName = () => "SpaceAppsKumasi-participant-" +
-  ($("name").value.trim().replace(/\s+/g, "-") || "card") + ".png";
+  ($("name").value.trim().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "") || "card") + ".png";
 
 $("dl").onclick = () => {
   const a = document.createElement("a");
@@ -356,19 +375,28 @@ $("dl").onclick = () => {
   a.click();
 };
 
-if (navigator.canShare && navigator.canShare({files: [new File([""], "x.png", {type: "image/png"})]})) {
+let canShareFiles = false;
+try {
+  canShareFiles = !!(navigator.canShare &&
+    navigator.canShare({files: [new File([""], "x.png", {type: "image/png"})]}));
+} catch (e) {}                    // some browsers throw on the probe; the button just stays hidden
+
+if (canShareFiles) {
   $("share").hidden = false;
-  $("share").onclick = () => c.toBlob(b => navigator.share({
-    files: [new File([b], fileName(), {type: "image/png"})],
-    text: "See you at the NASA Space Apps local event in Kumasi, 14-15 November 2026. #SpaceAppsKumasi @spaceappsksi"
-  }).catch(() => {}), "image/png");
+  $("share").onclick = () => c.toBlob(b => {
+    if (!b) return;
+    navigator.share({
+      files: [new File([b], fileName(), {type: "image/png"})],
+      text: "See you at the NASA Space Apps local event in Kumasi, 14-15 November 2026. #SpaceAppsKumasi @spaceappsksi"
+    }).catch(() => {});
+  }, "image/png");
 }
 
 Promise.all([
   document.fonts.load('900 60px "Fira Sans"'),
   document.fonts.load("400 20px Overpass"),
   document.fonts.load("700 20px Overpass")
-]);
+]).then(draw, draw);   // first paint may land before the fonts; repaint once they are in
 layer.onload = () => draw();
 layer.src = CARD.layer;
 </script>
