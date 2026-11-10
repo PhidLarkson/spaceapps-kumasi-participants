@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Participant card · NASA Space Apps Kumasi 2026</title>
-<meta name="description" content="Make your participant attendance card for NASA Space Apps Kumasi 2026, 14 and 15 November at KNUST. Add a photo and your name, then download it.">
+<meta name="description" content="Make your participant card for NASA Space Apps Kumasi 2026, 14 and 15 November at KNUST. Add a photo and your name, then download it.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="assets/icon.png">
 <meta property="og:title" content="Participant card · NASA Space Apps Kumasi 2026">
-<meta property="og:description" content="Add your photo and name, then post your attendance card with #SpaceAppsKumasi.">
+<meta property="og:description" content="Add your photo and name, then post your card with #SpaceAppsKumasi.">
 <meta property="og:image" content="https://phidlarkson.github.io/spaceapps-kumasi-participants/assets/preview.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,138 +21,115 @@
 :root{
   --navy:#07173F; --electric:#0042A6; --neon:#0960E1; --yonder:#2E96F5;
   --yellow:#EAFE07; --slate:#4A5878; --mist:#AEBBDA; --line:#D5DCEA;
-  --wash:#F5F8FD; --rule:#C9D3E6;
+  --rule:#C9D3E6; --wash:#F5F8FD;
   --display:"Fira Sans",system-ui,sans-serif; --body:Overpass,system-ui,sans-serif;
+  --pad:clamp(20px,4vw,56px);
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%}
 html,body{margin:0}
 body{background:#fff;color:var(--navy);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
 img,svg{display:block}
 a{color:var(--neon)}
 h1,h2,h3,p,ol,ul{margin:0}
 
-/* ---------- kente thread, the mark of every Kumasi 2026 page ---------- */
-.thread{position:fixed;left:0;right:0;top:0;height:3px;z-index:80;
-  background:url(assets/kente.png) repeat-x 0 0/auto 3px}
-
-/* ---------- the orbit behind the page ---------- */
-.sky{position:fixed;right:-260px;top:-220px;width:900px;height:900px;z-index:0;pointer-events:none}
-.sky circle{fill:none;stroke:var(--electric);stroke-opacity:.09;stroke-width:1}
-.sky .sun{fill:var(--yellow);stroke:var(--navy);stroke-width:1.5;stroke-opacity:.25}
-
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.thread{position:fixed;left:0;right:0;top:0;height:3px;z-index:90;
+        background:url(assets/kente.png) repeat-x 0 0/auto 3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
 
 /* ---------- header ---------- */
-.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:26px 0 20px;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:15px}
-.brand img.a{height:46px;width:auto}
-.brand .div{width:1px;height:38px;background:var(--rule)}
-.brand img.b{height:38px;width:auto}
-.bar .right{display:flex;align-items:center;gap:16px}
-.edition{font:700 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;
-  color:var(--navy);background:var(--yellow);padding:10px 14px;white-space:nowrap}
-.bar img.theme{height:44px;width:auto}
+.bar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+     padding:40px 0 20px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img.a{height:48px;width:auto}
+.brand .div{width:1px;height:40px;background:var(--rule)}
+.brand img.b{height:40px;width:auto}
+.bar .when{text-align:right;font:700 13px/1.6 var(--body);letter-spacing:.16em;
+           text-transform:uppercase;color:var(--navy)}
+.bar .when span{display:block;color:var(--electric);font-weight:600}
+.hair{height:1px;background:var(--line)}
 
 /* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;
-  align-items:end;padding:52px 0 44px}
+.hero{padding:44px 0 40px}
 .eyebrow{font:700 12.5px/1.4 var(--body);letter-spacing:.22em;text-transform:uppercase;
-  color:var(--electric);margin-bottom:20px}
-h1{font:900 clamp(40px,6.4vw,82px)/1.02 var(--display);letter-spacing:.04em;
-  text-transform:uppercase;max-width:16ch}
+         color:var(--electric);margin-bottom:18px}
+h1{font:900 clamp(24px,4.9vw,58px)/1.08 var(--display);letter-spacing:.05em;
+   text-transform:uppercase}
+h1 .line{display:block}
 h1 em{font-style:normal;color:var(--electric)}
-.lede{font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--slate);max-width:44ch;margin-top:22px}
-.facts{display:grid;gap:0;border-top:1px solid var(--line);margin-top:8px}
-.facts div{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:14px 0;
-  border-bottom:1px solid var(--line);align-items:baseline}
-.facts dt{font:700 11.5px/1.3 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
-.facts dd{margin:0;font:600 15.5px/1.45 var(--body)}
+.lede{font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:var(--slate);
+      max-width:52ch;margin-top:20px}
 
-/* ---------- main ---------- */
-main{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:56px;
-  padding:44px 0 72px;align-items:start}
-.preview{position:sticky;top:24px}
-.card-frame{background:var(--wash);padding:14px;border:1px solid var(--line)}
+/* ---------- maker ---------- */
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:56px;
+     padding:40px 0 64px;align-items:start}
+.preview{position:sticky;top:28px}
+.card-frame{background:var(--wash);padding:16px}
 canvas{width:100%;height:auto;display:block;background:#fff;touch-action:none;cursor:grab;
-  box-shadow:0 1px 0 rgba(7,23,63,.06),0 18px 44px rgba(7,23,63,.10)}
+       box-shadow:0 1px 0 var(--line),0 16px 40px rgba(7,23,63,.10)}
 canvas.dragging{cursor:grabbing}
-.hint{font-size:14px;line-height:1.5;color:var(--slate);margin-top:14px;max-width:46ch}
-.hint b{color:var(--navy)}
+.hint{font-size:13.5px;line-height:1.55;color:var(--slate);margin-top:14px}
+.hint b{color:var(--navy);font-weight:700}
 
-/* ---------- steps ---------- */
-ol.steps{list-style:none;padding:0;counter-reset:s}
-ol.steps>li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:4px 16px;
-  padding:26px 0;border-top:1px solid var(--line)}
-ol.steps>li:first-child{border-top:0;padding-top:0}
-ol.steps>li:last-child{border-bottom:1px solid var(--line)}
-ol.steps>li::before{content:counter(s,decimal-leading-zero);
-  font:900 22px/1.25 var(--display);color:var(--electric);letter-spacing:.02em}
-.st{font:700 13px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase;
-  margin:0 0 12px;color:var(--navy)}
+.steps{list-style:none;padding:0;counter-reset:s;border-top:1px solid var(--line)}
+.steps>li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:2px 18px;
+          padding:24px 0;border-bottom:1px solid var(--line)}
+.steps>li::before{content:counter(s,decimal-leading-zero);font:900 20px/1.3 var(--display);
+                  color:var(--electric)}
+.st{font:700 12.5px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:14px}
 .field{grid-column:2}
-.sub{grid-column:2;font-size:14.5px;line-height:1.55;color:var(--slate);margin:10px 0 0}
+.sub{grid-column:2;font-size:14px;line-height:1.55;color:var(--slate);margin-top:10px}
 
-label.f{display:block;font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 8px}
+label.f{display:block;font:700 11.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;
+        color:var(--slate);margin-bottom:8px}
 input[type=text]{width:100%;font:400 19px var(--body);color:var(--navy);background:transparent;
-  border:0;border-bottom:1.5px solid var(--navy);padding:9px 0;outline:none}
+                 border:0;border-bottom:1.5px solid var(--navy);padding:8px 0;outline:none}
 input[type=text]::placeholder{color:var(--mist)}
 input[type=text]:focus{border-bottom-color:var(--neon)}
 input[type=range]{width:100%;accent-color:var(--electric)}
-.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.btn{font:700 14px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;border:0;
-  padding:16px 24px;cursor:pointer;background:var(--yellow);color:var(--navy);
-  display:inline-flex;align-items:center;gap:10px;transition:background .2s,transform .2s}
-.btn:hover:not(:disabled){background:#fff;box-shadow:inset 0 0 0 1.5px var(--navy);transform:translateY(-2px)}
-.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--navy);padding:14.5px 20px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:700 13px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;border:0;
+     padding:15px 22px;cursor:pointer;background:var(--yellow);color:var(--navy);
+     display:inline-flex;align-items:center;gap:9px;transition:box-shadow .2s,transform .2s}
+.btn:hover:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--navy)}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--navy)}
 .btn.ghost:hover:not(:disabled){background:var(--navy);color:#fff;box-shadow:none}
 .btn:disabled{opacity:.4;cursor:not-allowed}
-.btn:focus-visible,.file:focus-within,button:focus-visible{outline:3px solid var(--yonder);outline-offset:3px}
+.btn:focus-visible,.file:focus-within{outline:3px solid var(--yonder);outline-offset:3px}
 .file{position:relative}
 .file input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
-svg.i{width:18px;height:18px;flex:none}
+svg.i{width:17px;height:17px;flex:none}
 
-/* ---------- collaborators + footer ---------- */
-footer{border-top:1px solid var(--line);background:var(--wash);position:relative;z-index:1}
-.colab{padding:34px 0 6px}
+/* ---------- footer ---------- */
+footer{background:var(--wash);border-top:1px solid var(--line)}
+.colab{padding:32px 0 8px}
 .colab .lab{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--slate)}
-.logos{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
-  padding:22px 0 10px}
-.logos img{max-height:44px;max-width:120px;width:auto;height:auto;object-fit:contain;opacity:.92}
-.foot{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;
-  padding:26px 0 34px;border-top:1px solid var(--rule);margin-top:24px;
-  font:600 12px/1.7 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
-.foot p{max-width:46ch}
-.fine{font:400 12.5px/1.6 var(--body);letter-spacing:0;text-transform:none;color:var(--slate)}
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 28px;align-items:center;
+       padding:24px 0 8px}
+.logos img{max-height:40px;max-width:130px;width:auto;height:auto;object-fit:contain}
+.foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;align-items:flex-end;
+      padding:24px 0 36px;border-top:1px solid var(--rule);margin-top:22px}
+.foot p{font:600 11.5px/1.7 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.fine{font:400 12.5px/1.6 var(--body);letter-spacing:0;text-transform:none;max-width:52ch}
 .foot a{color:var(--navy);font-weight:700}
 
-/* ---------- responsive ---------- */
-@media (max-width:920px){
-  .hero{grid-template-columns:1fr;gap:32px;padding:40px 0 34px}
+@media (max-width:900px){
   main{grid-template-columns:1fr;gap:36px;padding-top:32px}
   .preview{position:static}
-  .facts div{grid-template-columns:92px 1fr}
+  .logos{grid-template-columns:repeat(3,1fr)}
 }
-@media (max-width:560px){
-  .wrap{padding:0 20px}
-  .brand img.a{height:36px}.brand img.b{height:30px}.brand .div{height:30px}
-  .bar img.theme{display:none}
-  .edition{font-size:10.5px;padding:9px 11px}
-  ol.steps>li{grid-template-columns:38px 1fr}
-  h1{letter-spacing:.03em}
+@media (max-width:600px){
+  .bar{padding-top:32px}
+  .brand img.a{height:38px}.brand img.b{height:32px}.brand .div{height:32px}
+  .bar .when{font-size:11px}
+  .steps>li{grid-template-columns:34px 1fr;gap:2px 14px}
+  .logos{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
-
 <div class="thread" role="presentation"></div>
-<svg class="sky" viewBox="0 0 900 900" aria-hidden="true">
-  <circle cx="450" cy="450" r="150"/><circle cx="450" cy="450" r="228"/>
-  <circle cx="450" cy="450" r="310"/><circle cx="450" cy="450" r="400"/>
-  <circle class="sun" cx="450" cy="150" r="16"/>
-</svg>
 
 <header class="wrap">
   <div class="bar">
@@ -161,24 +138,16 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
       <div class="div"></div>
       <img class="b" src="assets/cityh-black.svg" alt="Kumasi">
     </div>
-    <div class="right">
-      <span class="edition">Participant edition</span>
-      <img class="theme" src="assets/theme.png" alt="2026 theme: The Next Frontier">
-    </div>
+    <p class="when">14&ndash;15 November 2026<span>KNUST, Kumasi</span></p>
   </div>
+  <div class="hair"></div>
 
   <div class="hero">
-    <div>
-      <p class="eyebrow">Participant card maker</p>
-      <h1>Proof you were <em>there</em></h1>
-      <p class="lede">Two days, one team, and a room full of people building with NASA's open data. Take your attendance card with you.</p>
-    </div>
-    <dl class="facts">
-      <div><dt>When</dt><dd>14 &amp; 15 November 2026</dd></div>
-      <div><dt>Where</dt><dd>KNUST, Kumasi</dd></div>
-      <div><dt>Theme</dt><dd>The Next Frontier</dd></div>
-    </dl>
+    <p class="eyebrow">Participant card maker</p>
+    <h1><span class="line">See you at the</span><span class="line">NASA Space Apps <em>Kumasi</em></span></h1>
+    <p class="lede">Add a photo and your name. The NASA Space Apps local event in Kumasi, 14&ndash;15 November 2026.</p>
   </div>
+  <div class="hair"></div>
 </header>
 
 <main class="wrap">
@@ -186,7 +155,7 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
     <div class="card-frame">
       <canvas id="c" width="1080" height="1350" aria-label="Your participant card"></canvas>
     </div>
-    <p class="hint"><b>Drag</b> the photo to move it. <b>Pinch</b>, scroll or use the slider to zoom. The file you download is 1080 × 1350, sized for a feed post.</p>
+    <p class="hint"><b>Drag</b> to move the photo, <b>pinch</b> or scroll to zoom. Downloads as a 1080 × 1350 post.</p>
   </section>
 
   <section aria-label="Steps">
@@ -194,7 +163,7 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
       <li>
         <div class="field">
           <p class="st">Add your photo</p>
-          <div class="row" style="margin-top:0">
+          <div class="row">
             <span class="btn file">
               <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16l4-4 4 4 4-6 4 6"/><rect x="3" y="4" width="18" height="16"/></svg>
               Choose a photo
@@ -202,14 +171,14 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
             </span>
           </div>
         </div>
-        <p class="sub">Chest up, facing the camera, in good light. Your photo is read in the browser and never leaves your device.</p>
+        <p class="sub">Chest up, facing the camera, in good light. The photo is read in your browser and never uploaded.</p>
       </li>
 
       <li>
         <div class="field">
           <p class="st">Frame it</p>
           <input id="zoom" type="range" min="0.2" max="4" step="0.01" value="1" aria-label="Zoom" disabled>
-          <div class="row"><button class="btn ghost" id="fit" disabled>Fit to circle</button></div>
+          <div class="row" style="margin-top:14px"><button class="btn ghost" id="fit" disabled>Fit to circle</button></div>
         </div>
       </li>
 
@@ -219,13 +188,12 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
           <label class="f" for="name">Name on the card</label>
           <input id="name" type="text" maxlength="26" placeholder="Ama Mensah" autocomplete="name" spellcheck="false">
         </div>
-        <p class="sub">Everything else is already set: participant, the dates and the collaborator line.</p>
       </li>
 
       <li>
         <div class="field">
           <p class="st">Save and post</p>
-          <div class="row" style="margin-top:0">
+          <div class="row">
             <button class="btn" id="dl" disabled>
               <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg>
               Download card
@@ -243,13 +211,14 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
   <div class="wrap colab">
     <p class="lab">Our local collaborators</p>
     <div class="logos">
-      <img src="assets/collaborators/astroxmat-trim.png" alt="AstroXMat Research Lab">
+      <img src="assets/collaborators/astroxmat-trim.png" alt="AstroXMat Research Laboratory">
       <img src="assets/collaborators/dipper-trim.png" alt="DIPPER Lab, KNUST">
-      <img src="assets/collaborators/elearning-trim.png" alt="E-Learning Centre">
+      <img src="assets/collaborators/elearning-trim.png" alt="KNUST E-Learning Centre">
       <img src="assets/collaborators/gsc-plate.png" alt="Ghana Space Conference">
       <img src="assets/collaborators/ofwa-ink-trim.png" alt="Open Foundation West Africa">
       <img src="assets/collaborators/sca-ga.png" alt="She Code Africa, Greater Accra Chapter">
       <img src="assets/collaborators/lidn-official-trim.png" alt="Ladies in Design Network">
+      <img src="assets/collaborators/ghie-logo.png" alt="Ghana Institution of Engineering">
     </div>
   </div>
   <div class="wrap">
@@ -262,46 +231,70 @@ footer{border-top:1px solid var(--line);background:var(--wash);position:relative
 </footer>
 
 <script>
-const CARD = {h: 1350, w: 1080, layer: "assets/layer-participant.png", cx: 540, cy: 430, r: 302, nameTop: 814};
+const CARD = {
+  w: 1080, h: 1350, layer: "assets/layer-participant.png",
+  cx: 540, cy: 720, r: 250,          // the photo leads, but leaves the card room to breathe
+  nameX: 80, nameBox: 700, nameTop: 1087, nameSize: 58
+};
 const c = document.getElementById("c"), g = c.getContext("2d"), $ = id => document.getElementById(id);
-let layer = new Image(), photo = null, s = 1, ox = 0, oy = 0, ready = false;
+let layer = new Image(), photo = null, s = 1, ox = 0, oy = 0;
 
 function draw() {
   g.clearRect(0, 0, CARD.w, CARD.h);
   if (layer.complete) g.drawImage(layer, 0, 0, CARD.w, CARD.h);
 
-  // photo inside the circle
   g.save();
   g.beginPath(); g.arc(CARD.cx, CARD.cy, CARD.r, 0, Math.PI * 2); g.clip();
+  g.fillStyle = "#07173F";
+  g.fillRect(CARD.cx - CARD.r, CARD.cy - CARD.r, CARD.r * 2, CARD.r * 2);
   if (photo) g.drawImage(photo, ox, oy, photo.width * s, photo.height * s);
   else {
     g.fillStyle = "#EDF2FC"; g.fillRect(CARD.cx - CARD.r, CARD.cy - CARD.r, CARD.r * 2, CARD.r * 2);
-    g.fillStyle = "#AEBBDA"; g.font = "700 26px Overpass"; g.textAlign = "center"; g.textBaseline = "middle";
-    g.letterSpacing = "6px"; g.fillText("YOUR PHOTO", CARD.cx, CARD.cy); g.letterSpacing = "0px";
+    g.fillStyle = "#AEBBDA"; g.font = "700 24px Overpass"; g.textAlign = "center";
+    g.textBaseline = "middle"; g.letterSpacing = "5px";
+    g.fillText("YOUR PHOTO", CARD.cx, CARD.cy); g.letterSpacing = "0px";
   }
   g.restore();
 
-  // name
+  // the name, left aligned on the 400px text column
   const nm = ($("name").value.trim() || "Your Name").toUpperCase();
-  g.textAlign = "center"; g.textBaseline = "top"; g.fillStyle = "#07173F"; g.letterSpacing = "2px";
-  let size = 84;
-  do { g.font = `900 ${size}px "Fira Sans"`; size -= 2; } while (g.measureText(nm).width > 900 && size > 38);
-  g.fillText(nm, CARD.cx, CARD.nameTop + (84 - size) / 2);
+  g.textAlign = "left"; g.textBaseline = "top"; g.fillStyle = "#07173F";
+  let size = CARD.nameSize;
+  do {
+    g.letterSpacing = (size * 0.05).toFixed(2) + "px";
+    g.font = `900 ${size}px "Fira Sans"`;
+    if (g.measureText(nm).width <= CARD.nameBox) break;
+    size -= 2;
+  } while (size > 26);
+  g.fillText(nm, CARD.nameX, CARD.nameTop + (CARD.nameSize - size) / 2);
   g.letterSpacing = "0px";
 }
 
+// keep the photo covering the circle: never let an edge creep inside it
+function clampPos() {
+  if (!photo) return;
+  const w = photo.width * s, h = photo.height * s;
+  const lo = CARD.cx + CARD.r - w, hi = CARD.cx - CARD.r;
+  ox = Math.min(hi, Math.max(lo, ox));
+  const top = CARD.cy + CARD.r - h, bottom = CARD.cy - CARD.r;
+  oy = Math.min(bottom, Math.max(top, oy));
+}
+
+let fitScale = 1;
+
 function fit() {
   if (!photo) return;
-  s = Math.max((2 * CARD.r) / photo.width, (2 * CARD.r) / photo.height);
+  fitScale = Math.max((2 * CARD.r) / photo.width, (2 * CARD.r) / photo.height);
+  s = fitScale;
   ox = CARD.cx - photo.width * s / 2;
-  oy = CARD.cy - photo.height * s * 0.42;
-  $("zoom").min = (s * 0.6).toFixed(3);
-  $("zoom").max = (s * 4).toFixed(3);
+  oy = CARD.cy - photo.height * s * 0.42;  // portraits: a little above centre
+  clampPos();
+  $("zoom").min = fitScale.toFixed(4);     // cannot zoom out past a full circle
+  $("zoom").max = (fitScale * 3).toFixed(4);
   $("zoom").value = s;
   draw();
 }
 
-// pointer: drag with one finger, pinch with two
 const pts = new Map(); let pinch = null;
 const toCanvas = e => {
   const b = c.getBoundingClientRect(), k = c.width / b.width;
@@ -310,6 +303,7 @@ const toCanvas = e => {
 function zoomAt(ns, px, py) {
   ns = Math.min(Math.max(ns, +$("zoom").min), +$("zoom").max);
   ox = px - (px - ox) * ns / s; oy = py - (py - oy) * ns / s; s = ns;
+  clampPos();
   $("zoom").value = s; draw();
 }
 c.addEventListener("pointerdown", e => {
@@ -325,7 +319,7 @@ c.addEventListener("pointermove", e => {
     if (pinch) zoomAt(s * d / pinch, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
     pinch = d; return;
   }
-  ox += p[0] - prev[0]; oy += p[1] - prev[1]; draw();
+  ox += p[0] - prev[0]; oy += p[1] - prev[1]; clampPos(); draw();
 });
 const up = e => { pts.delete(e.pointerId); pinch = null; if (!pts.size) c.classList.remove("dragging"); };
 c.addEventListener("pointerup", up);
@@ -366,17 +360,15 @@ if (navigator.canShare && navigator.canShare({files: [new File([""], "x.png", {t
   $("share").hidden = false;
   $("share").onclick = () => c.toBlob(b => navigator.share({
     files: [new File([b], fileName(), {type: "image/png"})],
-    text: "I am a participant at NASA Space Apps Kumasi 2026. #SpaceAppsKumasi @spaceappsksi"
+    text: "See you at the NASA Space Apps local event in Kumasi, 14-15 November 2026. #SpaceAppsKumasi @spaceappsksi"
   }).catch(() => {}), "image/png");
 }
 
-// fonts first, then the art, then the first paint
 Promise.all([
   document.fonts.load('900 60px "Fira Sans"'),
   document.fonts.load("400 20px Overpass"),
   document.fonts.load("700 20px Overpass")
-]).then(() => { ready = true; }).catch(() => {});
-
+]);
 layer.onload = () => draw();
 layer.src = CARD.layer;
 </script>

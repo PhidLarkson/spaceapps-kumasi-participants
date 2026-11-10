@@ -11,14 +11,15 @@ https://phidlarkson.github.io/spaceapps-kumasi-volunteer/
 
 ## How it is built
 
-White card on the 2026 brand guide: Deep Blue type, Electric Blue orbits, one Neon
-Yellow accent, the collaborator strip along the foot. No build step is needed to
-publish: the site is plain HTML.
+White card on the 2026 brand guide. The photo leads: a 500px circle on the centre
+axis inside a Navy holding ring and one Electric Blue orbit ring, with a single Neon
+Yellow planet. Above it the statement "See you at the NASA Space Apps Kumasi" in Fira
+Sans Black; below it the name, the role label and the eight collaborators in a single row. No build step is needed to publish: the site is plain HTML.
 
 | File | What it is |
 |---|---|
 | `index.html` | The whole app: page, CSS, canvas logic |
-| `assets/layer-participant.png` | The static card art (header, orbits, chip, collaborator strip, foot band) |
+| `assets/layer-participant.png` | The static card art (header, orbits, role label, collaborator rows, foot band) |
 | `tools/layer.html` | Source for that art |
 | `tools/build_layer.py` | Renders `layer.html` → `assets/layer-participant.png` |
 | `tools/preview.html`, `tools/build_preview.py` | The 1200 × 630 social preview |
