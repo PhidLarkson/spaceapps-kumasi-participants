@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:"Fira Sans";font-weight:900;src:url(../assets/fonts/FiraSans-900.woff2) format("woff2")}
+@font-face{font-family:"Overpass";font-weight:400;src:url(../assets/fonts/Overpass-400.woff2) format("woff2")}
+@font-face{font-family:"Overpass";font-weight:600;src:url(../assets/fonts/Overpass-600.woff2) format("woff2")}
+@font-face{font-family:"Overpass";font-weight:700;src:url(../assets/fonts/Overpass-700.woff2) format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;background:#fff;-webkit-font-smoothing:antialiased}
+#card{position:relative;width:1080px;height:1350px;background:#fff;overflow:hidden}
+.abs{position:absolute}
+
+/* ---- header ---- */
+.brand{left:60px;top:34px;display:flex;align-items:center;gap:16px}
+.brand img.a{height:54px;width:auto;display:block}
+.brand .div{width:1.5px;height:48px;background:#B8C3DD}
+.brand img.b{height:44px;width:auto;display:block}
+.where{right:60px;top:38px;text-align:right;font-family:Overpass;font-weight:700;font-size:20px;
+       letter-spacing:.14em;line-height:1.5;text-transform:uppercase;color:#0042A6}
+.where span{color:#07173F}
+.rule{left:60px;right:60px;height:1.5px;background:#C9D3E6}
+
+/* ---- orbit ---- */
+.orbits{left:0;top:0;width:1080px;height:1350px}
+
+/* ---- type ---- */
+.eyebrow{left:0;right:0;top:780px;text-align:center;font-family:Overpass;font-weight:700;font-size:21px;
+         letter-spacing:.24em;text-transform:uppercase;color:#0042A6}
+/* name is drawn by the canvas at y 816 */
+
+/* ---- chip ---- */
+.chip{left:50%;top:934px;transform:translateX(-50%);height:56px;padding:0 30px;
+      background:#EAFE07;display:flex;align-items:center;justify-content:center;
+      font-family:Overpass;font-weight:700;font-size:22px;letter-spacing:.18em;
+      text-transform:uppercase;color:#07173F;white-space:nowrap}
+
+/* ---- collaborators ---- */
+.colab-label{left:60px;right:60px;top:1054px;font-family:Overpass;font-weight:700;font-size:17px;
+             letter-spacing:.2em;text-transform:uppercase;color:#4A5878}
+.strip{left:60px;right:60px;display:flex;justify-content:space-between;align-items:center}
+.strip.one{top:1080px;height:48px}
+.strip.two{top:1140px;height:48px;justify-content:center;gap:54px}
+.strip .cell{display:flex;align-items:center;justify-content:center;height:48px}
+.strip img{max-height:42px;max-width:150px;width:auto;height:auto;object-fit:contain;display:block}
+
+/* ---- foot band ---- */
+.band{left:0;right:0;top:1212px;height:138px;background:#0960E1;color:#fff}
+.band .l{left:60px;top:30px;font-family:Overpass;font-weight:700;font-size:20px;letter-spacing:.16em;text-transform:uppercase}
+.band .l2{left:60px;top:60px;font-family:Overpass;font-weight:400;font-size:19px;letter-spacing:.1em;
+          text-transform:uppercase;color:#DCE9FB}
+.band .r{right:60px;top:30px;text-align:right;font-family:Overpass;font-weight:700;font-size:20px;letter-spacing:.12em}
+.band .r2{right:60px;top:60px;text-align:right;font-family:Overpass;font-weight:400;font-size:19px;letter-spacing:.1em;color:#DCE9FB}
+</style>
+</head>
+<body>
+<div id="card">
+
+  <svg class="abs orbits" viewBox="0 0 1080 1350" fill="none">
+    <g stroke="#0042A6" stroke-opacity=".14" stroke-width="1.5">
+      <circle cx="540" cy="430" r="330"/>
+      <circle cx="540" cy="430" r="396"/>
+      <circle cx="540" cy="430" r="468"/>
+      <circle cx="540" cy="430" r="548"/>
+    </g>
+    <circle cx="540" cy="430" r="303" fill="none" stroke="#07173F" stroke-width="2"/>
+  </svg>
+
+  <div class="abs brand">
+    <img class="a" src="../assets/default-black.svg" alt="">
+    <div class="div"></div>
+    <img class="b" src="../assets/cityh-black.svg" alt="">
+  </div>
+  <div class="abs where">KNUST Campus<br><span>14 &amp; 15 Nov 2026</span></div>
+  <div class="abs rule" style="top:104px"></div>
+
+  <div class="abs eyebrow">Attendance card</div>
+  <div class="abs chip">Participant</div>
+
+  <div class="abs rule" style="top:1030px"></div>
+  <div class="abs colab-label">Our local collaborators</div>
+  <div class="abs strip one">
+    <div class="cell"><img src="../assets/collaborators/astroxmat-trim.png" alt=""></div>
+    <div class="cell"><img src="../assets/collaborators/dipper-trim.png" alt=""></div>
+    <div class="cell"><img src="../assets/collaborators/elearning-trim.png" alt=""></div>
+    <div class="cell"><img src="../assets/collaborators/gsc-plate.png" alt=""></div>
+  </div>
+  <div class="abs strip two">
+    <div class="cell"><img src="../assets/collaborators/ofwa-ink-trim.png" alt=""></div>
+    <div class="cell"><img src="../assets/collaborators/sca-ga.png" alt=""></div>
+    <div class="cell"><img src="../assets/collaborators/lidn-official-trim.png" alt=""></div>
+  </div>
+
+  <div class="abs band">
+    <div class="abs l">NASA Space Apps Kumasi</div>
+    <div class="abs l2">The Next Frontier</div>
+    <div class="abs r">#SpaceAppsKumasi</div>
+    <div class="abs r2">@spaceappsksi</div>
+  </div>
+
+</div>
+</body>
+</html>
