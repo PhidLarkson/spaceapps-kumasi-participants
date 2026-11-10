@@ -55,5 +55,5 @@ then open http://127.0.0.1:8123/. The page reloads on save.
 Fira Sans and Overpass, per the NASA Space Apps brand guide. Collaborator logos
 belong to their respective organisations.
 
-This is a locally organised event held under the NASA Space Apps Challenge
-programme. It is not affiliated with, sponsored by, or endorsed by NASA.
+An official local edition of the NASA Space Apps Challenge, run in Kumasi by the
+local host team.
